@@ -12,7 +12,7 @@ config.get_params.each do |param|
  url = c["url"]
   puts url
   puts "checking 1111111111"
-  url = url.gsub("https://", "https://d0c7d529cec1c5693d13b3574f366b176c0cbddb")
+  url = url.gsub("https://", "https://d0c7d529cec1c5693d13b3574f366b176c0cbddb@")
   puts "checking 2222222222"
   puts url   
 
