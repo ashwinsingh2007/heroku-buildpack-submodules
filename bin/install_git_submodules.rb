@@ -8,14 +8,6 @@ config = ParseConfig.new("#{ENV['BUILD_DIR']}/.gitmodules")
 config.get_params.each do |param|
   next unless param.match(/^submodule/)
   c = config[param]
-  
- url = c["url"]
-  puts url
-  puts "checking 1111111111"
-  url = url.gsub("https://", "https://8e855b4013b4e1f606371dbb7fdd88423fa8668a@")
-  puts "checking 2222222222"
-  puts url   
-
 
   puts "-----> Installing submodule #{c["path"]} #{c["branch"]}"
   branch_flag = c["branch"] ? "-b #{c['branch']}" : ""
