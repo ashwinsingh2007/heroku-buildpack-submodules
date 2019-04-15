@@ -11,14 +11,16 @@ config.get_params.each do |param|
   
  url = c["url"]
   puts url
+  puts "checking 1111111111"
   url = url.gsub("https://", "https://d0c7d529cec1c5693d13b3574f366b176c0cbddb")
+  puts "checking 2222222222"
   puts url   
 
 
   puts "-----> Installing submodule #{c["path"]} #{c["branch"]}"
   branch_flag = c["branch"] ? "-b #{c['branch']}" : ""
   build_path = "#{ENV['BUILD_DIR']}/#{c["path"]}"
-  `git clone -q --single-branch #{c["url"]} #{branch_flag} #{build_path}`
+  `git clone -q --single-branch #{url} #{branch_flag} #{build_path}`
   if c.key?("revision")
     puts "       Setting submodule revision to #{c["revision"]}"
     Dir.chdir(build_path) do
