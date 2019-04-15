@@ -8,15 +8,12 @@ config = ParseConfig.new("#{ENV['BUILD_DIR']}/.gitmodules")
 config.get_params.each do |param|
   next unless param.match(/^submodule/)
   c = config[param]
-  # https://d0c7d529cec1c5693d13b3574f366b176c0cbddb@github.com/ashwinsingh2007/herokuchild.git
-  url = c["url"]
+  
+ url = c["url"]
   puts url
-  puts "checking ------------------------------------------------ 11111111111111111"
-  url = url.split('://', 1)
-  puts url
-  url = ` #{url[0]}d0c7d529cec1c5693d13b3574f366b176c0cbddb#{url[1]}`
-  puts url
-  puts "checking ------------------------------------------------222222222222"
+  url = url.gsub("https://", "https://d0c7d529cec1c5693d13b3574f366b176c0cbddb")
+  puts url   
+
 
   puts "-----> Installing submodule #{c["path"]} #{c["branch"]}"
   branch_flag = c["branch"] ? "-b #{c['branch']}" : ""
